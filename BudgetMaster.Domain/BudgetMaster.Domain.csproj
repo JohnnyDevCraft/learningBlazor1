@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="ServiceModels" />
+      <Folder Include="ViewModels\Request" />
+      <Folder Include="ViewModels\Response" />
+    </ItemGroup>
+
+</Project>

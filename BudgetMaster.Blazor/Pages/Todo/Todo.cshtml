@@ -1,0 +1,29 @@
+@page "/todo"
+<h2>ToDo's for You</h2>
+
+
+<input placeholder="Enter Todo" type="text" bind="@newTodo"/>
+<button onclick="@AddTodo">Add Todo</button>
+<ul>
+    @foreach (var todo in todoList)
+    {
+        <li>-@todo</li>
+    }
+</ul>
+
+
+
+@functions
+{
+
+    private List<string> todoList = new List<string>();
+    private string newTodo = "";
+
+    public void AddTodo()
+    {
+        todoList.Add(newTodo);
+        newTodo = string.Empty;
+    }
+
+
+}
