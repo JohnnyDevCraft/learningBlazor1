@@ -46,7 +46,4 @@ window.addEventListener('load', function () {
             localStorage.setItem(item, value);
         }
     }
-
-
-
 });
