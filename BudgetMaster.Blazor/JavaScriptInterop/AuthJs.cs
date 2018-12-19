@@ -8,21 +8,23 @@ namespace BudgetMaster.Blazor.JavaScriptInterop
     {
         public static Task ShowLock()
         {
-            return JSRuntime.Current.InvokeAsync<object>("functions.showLock");
+            return JSRuntime.Current.InvokeAsync<object>("authFunctions.beginAuth");
         }
 
-        [JSInvokable]
-        public static Task RegisterUser(string token, string profile)
+        public static Task SetSessionItem(string name, string value)
         {
-            
-            Console.WriteLine(token);
-            Console.WriteLine(profile);
-            
-            return Task.Run(() =>
-            {
-                
-            });
-
+            return JSRuntime.Current.InvokeAsync<object>("authFunctions.setSessionItem", name, value);
         }
+
+        public static Task<string> getSessionItem(string name)
+        {
+            return JSRuntime.Current.InvokeAsync<string>("authFunctions.getSessionItem", name);
+        }
+
+        public static Task HandleAuthentication()
+        {
+            return JSRuntime.Current.InvokeAsync<object>("authFunctions.handleAuth");
+        }
+        
     }
 }

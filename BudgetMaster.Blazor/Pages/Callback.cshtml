@@ -1,0 +1,13 @@
+﻿@page "/callback"
+
+<h2>Logging In</h2>
+
+@functions { 
+
+    protected override void OnAfterRender()
+    {
+        JavaScriptInterop.AuthJs.HandleAuthentication();
+        base.OnAfterRender();
+    }
+
+}
