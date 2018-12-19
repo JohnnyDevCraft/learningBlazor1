@@ -1,13 +1,20 @@
 ﻿@page "/callback"
+@using BudgetMaster.Blazor.Abstractions
+@using Microsoft.AspNetCore.Blazor.Services
+
+@inject IUriHelper UriHelper
+@inject IAuthenticationService authSvc
 
 <h2>Logging In</h2>
 
-@functions { 
+@functions {
 
-    protected override void OnAfterRender()
+    
+    protected override async Task OnInitAsync()
     {
-        JavaScriptInterop.AuthJs.HandleAuthentication();
-        base.OnAfterRender();
+        Console.WriteLine("Capturing login data.------------------------->>>>>>>>>>>>>");
+        authSvc.HandelAuthentication();
+        UriHelper.NavigateTo("/");
     }
 
 }

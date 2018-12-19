@@ -25,6 +25,21 @@ namespace BudgetMaster.Blazor.JavaScriptInterop
         {
             return JSRuntime.Current.InvokeAsync<object>("authFunctions.handleAuth");
         }
+
+        public static Task LoadProfile()
+        {
+            return JSRuntime.Current.InvokeAsync<object>("authFunctions.loadProfile");
+        }
+
+        public static Task<string> GetCurrentUserName()
+        {
+            return JSRuntime.Current.InvokeAsync<string>("authFunctions.getUserName");
+        }
+        
+        public static Task<string> GetCurrentUserEmail()
+        {
+            return JSRuntime.Current.InvokeAsync<string>("authFunctions.getUserEmail");
+        }
         
     }
 }
